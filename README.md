@@ -1,1 +1,1 @@
-# Final examination of Digital Circuit Design
+# Final examination of Digital Logic Design
