@@ -1,1 +1,1 @@
-# Digital-Circuit-Design-Project
+# Final examination of Digital Circuit Design
