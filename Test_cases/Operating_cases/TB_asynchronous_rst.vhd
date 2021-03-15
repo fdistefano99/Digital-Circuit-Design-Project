@@ -27,11 +27,7 @@ signal RAM: ram_type := (0 => std_logic_vector(to_unsigned(  2  , 8)),
                          3 => std_logic_vector(to_unsigned(  131  , 8)), 
                          4 => std_logic_vector(to_unsigned(  62  , 8)), 
                          5 => std_logic_vector(to_unsigned(  89  , 8)), 
-                         others => (others =>'0'));         
-			 -- Expected Output  6 -> 0                         
-			 -- Expected Output  7 -> 255                         
-			 -- Expected Output  8 -> 64                         
-			 -- Expected Output  9 -> 172                         
+                         others => (others =>'0'));                                  
 
 component project_reti_logiche is
 port (
@@ -111,28 +107,6 @@ begin
             tb_start <= '0';
             wait until tb_done = '0';
             wait for 100 ns;
-    
-    
-    --------------
-  --  wait for 100 ns;
-   --     wait for c_CLOCK_PERIOD;
-  --      tb_rst <= '1';
-    --    wait for c_CLOCK_PERIOD;
-    --    wait for 100 ns;
-    --    tb_rst <= '0';
-   --     wait for c_CLOCK_PERIOD;
-  --      wait for 100 ns;
-   --     tb_start <= '1';
-  --      wait for c_CLOCK_PERIOD;
-   --     wait until tb_done = '1';
-   --     wait for c_CLOCK_PERIOD;
-  --      tb_start <= '0';
-    --    wait until tb_done = '0';
-    --    wait for 100 ns;
-    
-
-    -- Immagine originale =  [46, 131, 62, 89]  
-    -- Immagine di output =  [0, 255, 64, 172]  
     
     assert RAM(6) = std_logic_vector(to_unsigned( 0 , 8)) report "TEST FALLITO (WORKING ZONE). Expected  0  found " & integer'image(to_integer(unsigned(RAM(6))))  severity failure;
     assert RAM(7) = std_logic_vector(to_unsigned( 255 , 8)) report "TEST FALLITO (WORKING ZONE). Expected  255  found " & integer'image(to_integer(unsigned(RAM(7))))  severity failure;
